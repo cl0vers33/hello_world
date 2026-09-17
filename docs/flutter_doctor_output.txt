@@ -1,0 +1,17 @@
+﻿flutter : Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+At line:15 char:1688
++ ... es\app\node_modules\@vscode\ripgrep\bin'; flutter doctor 2>&1 | Out-F ...
++                                               ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Flutter assets ...st this source!:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Doctor summary (to see all details, run flutter doctor -v):
+[√] Flutter (Channel stable, 3.47.2, on Microsoft Windows [版本 10.0.26200.9445], locale zh-CN)
+[√] Windows Version (Windows 11 or higher, 25H2, 2009)
+[√] Android toolchain - develop for Android devices (Android SDK version 36.0.0)
+[√] Chrome - develop for the web
+[√] Visual Studio - develop Windows apps (Visual Studio 生成工具 2022 17.14.41 (September 2026))
+[√] Connected device (4 available)
+[√] Network resources
+
+• No issues found!
