@@ -7,11 +7,14 @@
 | 阅读 `mapp-guide-1.docx` 与 `mapp-homework-1.doc` | 是 | 用脚本把二进制 Word 文档提取为文本，便于阅读指南与作业要求 |
 | 创建 hello_world 项目 | 否 | 由 `flutter create hello_world` 命令生成，AI 未改一个字符 |
 | 为 main.dart 加逐行中文注释 | 是 | AI 在原代码基础上添加注释，未修改任何逻辑代码；并修正了原文件中两处类名缺失（`ColorScheme.fromSeed`、`MainAxisAlignment.center`） |
-| 初始化 Git 仓库与提交 | 否 | `git init`、`git add`、`git commit` 均由本人核对后执行 |
+| 初始化 Git 仓库与提交 | 部分 | git 命令由 AI 在本人要求下执行，提交内容与 message 经本人核对；提交身份为本人账号（成思辰） |
 | Web 端运行截图 | 部分 | AI 用浏览器自动化打开本地 web 服务并截图；截图由本人确认内容正确后保留 |
-| 模拟器运行截图 | 否 | `flutter run -d emulator-5554` 与 `adb screencap` 由本人执行 |
+| 模拟器运行截图 | 部分 | AI 通过 `flutter build apk`、`adb install` 安装应用、`input tap` 点击 3 次并 `screencap` 截图；截图内容由本人核对确认 |
 | Gradle SSL 证书问题定位 | 是 | AI 根据报错栈定位到 Gradle wrapper 下载 URL 与 Java truststore，给出镜像替换方案 |
 | 项目路径中文报错定位 | 是 | AI 根据报错指出 AGP 对非 ASCII 路径的检查，给出 `android.overridePathCheck=true` 方案 |
+| 定位 VS 缺 Windows SDK | 部分 | AI 根据 doctor 的 [!] 输出给出 VS Installer 组件 ID 与命令；UAC 确认与安装由本人执行 |
+| 创建 GitHub 仓库 | 部分 | 空仓库由本人登录 github.com 后点击 Create repository 创建；remote/push 命令由 AI 在本人要求下执行 |
+| 编写任务4 逐行讲解文档 | 是 | AI 起草分段逐行讲解，本人核对后保留 |
 | 编写 README 与各说明文档 | 是 | AI 起草文档，本人核对内容与截图一致后保留 |
 | 编写进度报告 | 是 | AI 按模板十节起草，本人核对后保留 |
 

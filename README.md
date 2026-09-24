@@ -60,9 +60,12 @@ hello_world/
 ├── windows/             # Windows 桌面工程
 ├── test/                # 测试
 ├── docs/                # 运行截图与诊断输出
+│   ├── flutter_doctor.png      # doctor 全绿截图
+│   ├── flutter_doctor_output.txt
 │   ├── web_run.png
 │   ├── emulator_run.png
-│   └── flutter_doctor_output.txt
+│   └── github_repo.png         # GitHub 仓库页面截图
+├── lecture1/            # 课堂作业一：5 项自主实践记录 + 进度报告一
 └── pubspec.yaml         # 依赖与资源声明
 ```
 

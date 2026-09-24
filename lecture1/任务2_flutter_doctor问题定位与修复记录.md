@@ -87,9 +87,53 @@ android.overridePathCheck=true
 
 ---
 
+## 问题三：Visual Studio 项 [!] —— 缺少 Windows 10 SDK
+
+### 现象
+
+课后重新运行 `flutter doctor`，Visual Studio 一项不再是 ✓：
+
+```
+[!] Visual Studio - develop Windows apps (Visual Studio 生成工具 2022 17.14.41 (September 2026))
+    ! Unable to locate a Windows 10 SDK. If building fails, install the Windows 10 SDK in Visual Studio.
+! Doctor found issues in 1 category.
+```
+
+### 定位
+
+1. 检查 `C:\Program Files (x86)\Windows Kits`，目录根本不存在，说明机器上从未安装过任何 Windows SDK。
+2. 本机的 Visual Studio 是"生成工具 2022"（BuildTools），当初只勾选了 C++ 编译器组件，没有勾选任何 Windows SDK 版本。
+3. Flutter 构建 Windows 桌面应用时，除了需要 C++ 编译器，还需要 Windows SDK 提供的系统 API 头文件（如 windows.h）与导入库，doctor 的 VS 检查会同时找这两样。
+
+### 解决
+
+通过 Visual Studio Installer 为 BuildTools 加装 Windows 10 SDK 组件：
+
+```
+setup.exe modify --installPath "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools" ^
+  --add Microsoft.VisualStudio.Component.Windows10SDK.19041
+```
+
+这是系统级修改：命令由 AI 给出，UAC 授权与实际执行由本人完成。
+
+### 验证
+
+安装结束后重开终端执行 `flutter doctor`：
+
+```
+[√] Visual Studio - develop Windows apps (Visual Studio 生成工具 2022 17.14.41 (September 2026))
+...
+• No issues found!
+```
+
+VS 项恢复 ✓，7 项全部全绿。
+
+---
+
 ## 小结
 
 | 序号 | 问题 | 根因 | 修复 |
 |------|------|------|------|
 | 1 | Gradle 下载 SSL 握手失败 | Java truststore 不识别 services.gradle.org 证书 | 切换腾讯云 Gradle 镜像 + 阿里云 Maven 镜像 |
 | 2 | 路径含中文被 AGP 拒绝 | 项目路径含非 ASCII 字符 | 添加 `android.overridePathCheck=true` |
+| 3 | VS 项 [!]，缺 Windows 10 SDK | BuildTools 未安装任何 Windows SDK | VS Installer 加装 Windows 10 SDK 19041 |
